@@ -1,0 +1,22 @@
+.news-container {
+  max-width: 1200px;
+  margin: 40px auto; 
+  padding: 0 20px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--color-primario);
+  margin-bottom: 40px;
+  font-size: 2rem;
+  border-bottom: 2px solid var(--color-acento);
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px; 
+}

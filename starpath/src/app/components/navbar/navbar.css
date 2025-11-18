@@ -36,5 +36,5 @@
 /* Esta clase la añade Angular automáticamente a los enlaces activos */
 .active {
   background-color: var(--color-acento);
-  color: var(--color-primario) !important; /* !important para forzarlo */
+  color: var(--color-primario) !important; 
 }
