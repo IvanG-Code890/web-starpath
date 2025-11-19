@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-news',
   standalone: true,
-  imports: [CommonModule, ArticleCard],
+  imports: [ArticleCard],
   templateUrl: './news.html',
   styleUrl: './news.css'
 })
