@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 // Importamos las clases de las piezas
-import { Navbar } from './components/navbar/navbar';
-import { Footer } from './components/footer/footer';
+import { Navbar } from './shared/components/navbar/navbar';
+import { Footer } from './shared/components/footer/footer';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { Footer } from './components/footer/footer';
 
   // Añadimos las clases a la lista de imports
   imports: [
-    RouterOutlet, 
+    RouterOutlet,
+    FormsModule,
     Navbar, 
     Footer
   ],

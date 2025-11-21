@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
-import { News } from './pages/news/news';
-import { Download } from './pages/download/download';
-import { Feature } from './pages/feature/feature';
-import { HowToPlay } from './pages/how-to-play/how-to-play'; 
-import { Contact } from './pages/contact/contact';
-import { Game } from './pages/game/game';
-import { Login } from './pages/login/login';
-import { Register } from './pages/register/register';
-import { Faq } from './pages/faq/faq';
-import { Privacy } from './pages/privacy/privacy'; 
+import { Home } from '../features/pages/home/home';
+import { News } from '../features/pages/news/news';
+import { Download } from '../features/pages/download/download';
+import { Feature } from '../features/pages/feature/feature';
+import { HowToPlay } from '../features/pages/how-to-play/how-to-play'; 
+import { Contact } from '../features/pages/contact/contact';
+import { Game } from '../features/pages/game/game';
+import { Login } from '../features/pages/login/login';
+import { Register } from '../features/pages/register/register';
+import { Faq } from '../features/pages/faq/faq';
+import { Privacy } from '../features/pages/privacy/privacy'; 
 
 export const routes: Routes = [
   { path: '', component: Home }, // Pagina principal
@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'faq', component: Faq }, // Preguntas frecuentes
   { path: 'login', component: Login }, // Iniciar sesion
   { path: 'register', component: Register }, // Registro
-  { path: 'privacy', component: Privacy }, //Política de privacidad
+  { path: 'privacy', component: Privacy }, // Política de privacidad
 
   // Por si acaso da errores
     { path: '**', redirectTo: '', pathMatch: 'full' }
