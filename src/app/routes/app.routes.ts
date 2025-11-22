@@ -3,14 +3,16 @@ import { Home } from '../features/pages/home/home';
 import { News } from '../features/pages/news/news';
 import { Download } from '../features/pages/download/download';
 import { Feature } from '../features/pages/feature/feature';
-import { HowToPlay } from '../features/pages/how-to-play/how-to-play'; 
+import { HowToPlay } from '../features/pages/how-to-play/how-to-play';
 import { Contact } from '../features/pages/contact/contact';
 import { Game } from '../features/pages/game/game';
 import { Login } from '../features/pages/login/login';
 import { Register } from '../features/pages/register/register';
-import { Privacy } from '../features/pages/privacy/privacy'; 
+import { Privacy } from '../features/pages/privacy/privacy';
 import { Dashboard } from '../features/pages/dashboard/dashboard';
 import { AuthGuard } from '../core/services/auth.guard';
+import { ForgotPassword } from '../features/pages/forgot-password/forgot-password';
+import { ResetPassword } from '../features/pages/reset-password/reset-password';
 
 
 export const routes: Routes = [
@@ -26,7 +28,10 @@ export const routes: Routes = [
   { path: 'register', component: Register }, // Registro
   { path: 'privacy', component: Privacy }, // Política de privacidad
   { path: 'dashboard', component: Dashboard, canActivate: [AuthGuard] },
+  { path: 'forgot-password', component: ForgotPassword },
+  { path: 'reset-password', component: ResetPassword },
+
 
   // Por si acaso da errores
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
