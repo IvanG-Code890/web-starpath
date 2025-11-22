@@ -6,7 +6,7 @@ import { supabase } from '../../../core/services/supabase.config';
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule],
   templateUrl: './forgot-password.html',
   styleUrl: './forgot-password.css'
 })
