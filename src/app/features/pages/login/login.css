@@ -127,3 +127,32 @@
   border: 1px solid #badbcc;
 }
 
+/* Contenedor del checkbox */
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* El propio checkbox */
+.form-check-input {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--color-acento); /* ✅ color personalizado del tema */
+}
+
+/* El texto del label */
+.form-check-label {
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-check-label:hover {
+  color: var(--color-acento);
+}
