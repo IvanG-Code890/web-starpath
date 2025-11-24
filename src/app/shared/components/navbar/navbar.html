@@ -13,14 +13,27 @@
   </ul>
 
   @if (user) {
+    
     <div class="user-info">
-      <span>👤 {{ user.email }}</span>
-      <button (click)="logout()" class="btn-logout">Cerrar sesión</button>
+      <span class="user-level">LVL 1</span>
+      
+      <div class="user-profile">
+        <span class="username">{{ user.email.split('@')[0] }}</span>
+        
+        <div class="avatar">
+          {{ user.email.charAt(0).toUpperCase() }}
+        </div>
+      </div>
+      
+      <button class="btn-logout" (click)="logout()" title="Cerrar sesión">X</button>
     </div>
+
   } @else {
+    
     <div class="auth-buttons">
       <button class="btn-login" routerLink="/login">Iniciar sesión</button>
       <button class="btn-register" routerLink="/register">Registrarse</button>
     </div>
+
   }
 </nav>

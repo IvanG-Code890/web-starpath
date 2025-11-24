@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
 .navbar {
-  font-family: 'PixelFont', monospace; /* Se aplica a todo */
+  font-family: 'PixelFont', monospace; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-primario);
   padding: 1rem 2rem; 
   color: var(--color-texto-principal);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -20,7 +20,7 @@
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2rem; 
-  text-shadow: 2px 2px 0px #000; /* Sombra "retro" al texto */
+  text-shadow: 2px 2px 0px #000; 
 }
 
 /* --- ENLACES (Centro) --- */
@@ -61,7 +61,7 @@
   align-items: center;
 }
 
-/* 1. Base común para ambos botones */
+/* Base común para ambos botones */
 .btn-login, .btn-register {
   font-family: 'PixelFont', monospace;
   font-size: 0.85rem; 
@@ -86,14 +86,14 @@
 
 .btn-login:hover {
   background-color: #ffffff; 
-  color: var(--color-primario); /* Texto oscuro */
+  color: var(--color-primario); 
   transform: translateY(-2px);
-  box-shadow: 0 6px 0px #5c5c5c; /* La sombra crece */
+  box-shadow: 0 6px 0px #5c5c5c; 
 }
 
 .btn-login:active {
-  transform: translateY(4px); /* Efecto de presionar */
-  box-shadow: 0 0px 0px #5c5c5c; /* La sombra desaparece al pulsar */
+  transform: translateY(4px); 
+  box-shadow: 0 0px 0px #5c5c5c; 
 }
 
 
@@ -101,19 +101,104 @@
   background-color: var(--color-acento); 
   border-color: var(--color-acento);
   color: #fff;
-  /* Sombra: Truco visual -> Un tono mucho más oscuro que el acento */
-  /* Si tu acento es brillante, esto crea el borde 3D oscuro */
   box-shadow: 0 4px 0px #1d59fc; 
 }
 
 .btn-register:hover {
-  /* Un poco más claro al pasar el ratón para que brille */
   filter: brightness(1.1); 
   transform: translateY(-2px);
-  box-shadow: 0 6px 0px #1d59fc; /* La sombra oscura crece */
+  box-shadow: 0 6px 0px #1d59fc; 
 }
 
 .btn-register:active {
+  transform: translateY(4px); 
+  box-shadow: 0 0px 0px #1d59fc;
+}
+
+/* --- SECCIÓN DE USUARIO (HUD) --- */
+/* Solo se ve cuando user existe */
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Espacio entre elementos del HUD */
+  font-family: 'PixelFont', monospace;
+}
+
+/* 1. Etiqueta de Nivel (Decorativa) */
+.user-level {
+  font-size: 0.7rem;
+  color: #ffd700; /* Color Dorado */
+  border: 2px solid #ffd700;
+  padding: 5px 8px;
+  border-radius: 4px;
+  text-shadow: 2px 2px 0px #000;
+  box-shadow: 0 4px 0px rgba(0,0,0,0.5); /* Sombra dura */
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Perfil (Nombre + Avatar) */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.user-profile:hover {
+  transform: translateY(-2px); /* Pequeño salto al pasar el ratón */
+}
+
+.username {
+  font-size: 0.9rem;
+  color: var(--color-texto-principal);
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px #000;
+}
+
+/* Avatar cuadrado estilo Pixel */
+.avatar {
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-acento);
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 4px 4px 0px #000; /* Sombra negra dura muy marcada */
+}
+
+/* 3. Botón de Salir (Logout) */
+/* Lo hacemos rojo para que se distinga como acción de "cerrar" */
+.btn-logout {
+  font-family: 'PixelFont', monospace;
+  background-color: #ff4757; /* Rojo intenso */
+  color: white;
+  border: 2px solid #ff4757;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 4px 0px #8e1a34; /* Sombra roja oscura dura */
+  transition: all 0.1s;
+  margin-left: 10px;
+  font-size: 0.8rem;
+}
+
+.btn-logout:hover {
+  background-color: #ff6b81; /* Un poco más claro */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0px #8e1a34;
+}
+
+.btn-logout:active {
   transform: translateY(4px); /* Se hunde */
-  box-shadow: 0 0px 0px #1d59fc; /* Sin sombra */
+  box-shadow: 0 0px 0px #8e1a34;
 }
