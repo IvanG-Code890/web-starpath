@@ -32,5 +32,38 @@ describe('Login', () => {
     expect(component).toBeTruthy();
   });
 
+  it('debería mostrar error si los campos están vacíos', () => {
+    component.email = '';
+    component.password = '';
+    component.login();
+    
+    // Esperamos que la lista de errores no esté vacía
+    expect(component.errores.length).toBeGreaterThan(0);
+  });
+
+  it('debería llamar a Supabase si el formulario es válido', async () => {
+    component.email = 'test@test.com';
+    component.password = '123456';
+
+    // --- EL TRUCO MAESTRO ---
+    // Sobreescribimos el espía SOLO para este test.
+    // Le decimos que devuelva un ERROR. 
+    // Así tu código entra en el "if (error)", para, y NO ejecuta el window.location.href
+    (supabase.auth.signInWithPassword as jasmine.Spy).and.returnValue(
+      Promise.resolve({ 
+        data: { user: null, session: null }, 
+        error: { message: 'Error simulado para evitar recarga' } 
+      })
+    );
+
+    // Ejecutamos
+    await component.login();
+
+    // Comprobamos que se llamó (esto pasará igual, aunque haya dado error después)
+    expect(supabase.auth.signInWithPassword).toHaveBeenCalledWith({
+      email: 'test@test.com',
+      password: '123456'
+    });
+  });
   
 });
