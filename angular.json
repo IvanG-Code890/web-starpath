@@ -23,7 +23,7 @@
                 "glob": "**/*",
                 "input": "public"
               }
-            ], 
+            ],
             "styles": [
               "src/styles.css"
             ]
@@ -84,6 +84,15 @@
             "styles": [
               "src/styles.css"
             ]
+          }
+        },
+        "doc": {
+          "builder": "@compodoc/compodoc:compodoc",
+          "options": {
+            "tsconfig": "tsconfig.json",
+            "outputPath": "documentation",
+            "name": "Documentación STARPATH RPG",
+            "theme": "material"
           }
         }
       }
