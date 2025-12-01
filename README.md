@@ -57,7 +57,7 @@ Sigue estos pasos para levantar el proyecto en tu entorno local:
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/Ataik7/web-starpath.git](https://github.com/Ataik7/web-starpath.git)
+    git clone https://github.com/Ataik7/web-starpath.git
     cd web-starpath
     ```
 
