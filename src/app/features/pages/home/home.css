@@ -1,3 +1,15 @@
+/**
+ * Hoja de estilos de la Página de Inicio (Home).
+ *
+ * Define el diseño de la portada principal (Hero Section) de la aplicación.
+ * Se caracteriza por el uso de una imagen de fondo inmersiva con superposición de gradiente,
+ * tipografía grande y pixelada para el título principal, y botones de llamada a la acción (CTA)
+ * con efectos de interacción avanzados.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+ 
 /* --- Portada --- */
 .hero {
   height: 90vh; 

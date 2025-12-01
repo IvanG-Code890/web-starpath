@@ -1,3 +1,15 @@
+/**
+ * Hoja de estilos de la Página de Noticias.
+ *
+ * Define la estructura de la rejilla (Grid) donde se mostrarán las tarjetas de noticias.
+ * Utiliza CSS Grid para crear un diseño responsivo automático que ajusta el número
+ * de columnas según el ancho de la pantalla.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+ /* Contenedor principal */
 .news-container {
   max-width: 1200px;
   margin: 40px auto; 

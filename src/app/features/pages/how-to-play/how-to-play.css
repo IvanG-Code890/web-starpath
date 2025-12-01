@@ -1,3 +1,14 @@
+/**
+ * Hoja de estilos de la Página "Cómo Jugar".
+ *
+ * Define el diseño de la guía de juego, utilizando secciones visuales claras.
+ * Destaca por el uso de CSS avanzado para simular elementos de interfaz física,
+ * como las teclas del teclado en la sección de controles.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
 /* Contenedor Principal */
 .guide-container {
   padding: 40px 20px;

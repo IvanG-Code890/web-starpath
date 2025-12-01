@@ -3,6 +3,19 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { supabase } from '../../../core/services/supabase.config';
 
+/**
+ * Componente de la Página de Registro.
+ *
+ * Permite a los nuevos usuarios crear una cuenta en la aplicación.
+ * Gestiona el formulario de registro (nombre de usuario, email, contraseña),
+ * valida los datos y se comunica con Supabase para crear el usuario.
+ *
+ * También implementa lógica de seguridad para detectar usuarios duplicados
+ * y notifica al usuario para que verifique su correo electrónico.
+ *
+ * @author Iván Gastineau y Pablo Nicolás
+ * @version 1.0
+ */
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -24,6 +37,16 @@ export class Register {
     private cd: ChangeDetectorRef 
   ) {}
 
+  /**
+   * Método principal de registro de usuario.
+   *
+   * 1. Reinicia errores y realiza validaciones locales (campos vacíos, formato email, longitud password).
+   * 2. Llama a Supabase para crear el usuario (signUp).
+   * 3. Gestiona errores del servidor (usuario ya existe, email inválido).
+   * 4. Implementa una comprobación adicional de seguridad para detectar usuarios duplicados
+   * incluso si Supabase devuelve un éxito falso (por seguridad/privacidad).
+   * 5. Si es exitoso, muestra una alerta y redirige al Login.
+   */
   async register() {
     this.errores = [];
 

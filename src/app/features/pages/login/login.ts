@@ -61,7 +61,7 @@ export class Login implements OnInit {
    * 4. Gestiona los errores devueltos por Supabase.
    * 5. Si es exitoso:
    * - Guarda o borra el email en localStorage según el checkbox "Recuérdame".
-   * - Redirige al usuario a la página de inicio.
+   * - Redirige al usuario a la página de inicio ('/home').
    */
   async login() {
     this.errores = [];

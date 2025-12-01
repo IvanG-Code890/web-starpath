@@ -4,6 +4,18 @@ import { Article } from '../../../models/article.model';
 import { MockDataService } from '../../../core/services/mock-data';
 
 
+/**
+ * Componente de la Página de Noticias.
+ *
+ * Esta página se encarga de mostrar las últimas novedades y actualizaciones del juego.
+ * Actúa como un componente "inteligente" (Smart Component) que:
+ * 1. Solicita los datos al servicio de datos (MockDataService).
+ * 2. Almacena la lista de artículos.
+ * 3. Pasa cada artículo al componente hijo 'ArticleCard' para su visualización.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
 @Component({
   selector: 'app-news',
   standalone: true,

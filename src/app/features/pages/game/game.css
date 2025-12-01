@@ -1,3 +1,14 @@
+/**
+ * Hoja de estilos de la Página de Juego (Game).
+ *
+ * Define el diseño de la pantalla donde se incrustará el juego.
+ * Simula una interfaz de carga de consola o arcade retro.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+ /* Contenedor principal */
 .game-container {
   text-align: center;
   padding: 40px 20px;

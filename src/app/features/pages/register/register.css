@@ -1,3 +1,14 @@
+/**
+ * Hoja de estilos de la Página de Registro.
+ *
+ * Comparte la misma línea de diseño que la página de Login para mantener
+ * la coherencia visual. Utiliza una tarjeta centrada, inputs estilizados
+ * y alertas de error claras.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
 /* --- Contenedor principal --- */
 .auth-container {
   display: flex;
