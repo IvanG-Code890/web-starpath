@@ -150,3 +150,14 @@
     padding: 30px 20px;
   }
 }
+
+.success-alert {
+  background-color: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-align: left;
+}

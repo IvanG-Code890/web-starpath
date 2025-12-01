@@ -12,6 +12,12 @@
       </div>
     }
 
+    @if (successMessage) {
+        <div class="success-alert">
+          {{ successMessage }}
+        </div>
+    }
+
     <form (ngSubmit)="register()">
       <div class="form-group">
         <label for="username">Nombre de Usuario</label>

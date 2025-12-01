@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core'; // 1. Importamos ChangeDetectorRef
-import { Router, RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router'; // 2. Importamos Router para redirección
+import { FormsModule } from '@angular/forms'; // 3. Importamos FormsModule para ngModel
 import { supabase } from '../../../core/services/supabase.config';
 
 /**
@@ -14,7 +14,7 @@ import { supabase } from '../../../core/services/supabase.config';
  * y notifica al usuario para que verifique su correo electrónico.
  *
  * @author Iván Gastineau y Pablo Nicolás
- * @version 1.0
+ * @version 1.1
  */
 @Component({
   selector: 'app-register',
@@ -30,8 +30,9 @@ export class Register {
   
   loading = false;
   errores: string[] = [];
+  successMessage: string | null = null;
 
-  // 2. Inyectamos el detector de cambios (cd)
+  // 4. Inyectamos el detector de cambios (cd) y el router
   constructor(
     private router: Router,
     private cd: ChangeDetectorRef 
@@ -45,10 +46,11 @@ export class Register {
    * 3. Gestiona errores del servidor (usuario ya existe, email inválido).
    * 4. Implementa una comprobación adicional de seguridad para detectar usuarios duplicados
    * incluso si Supabase devuelve un éxito falso (por seguridad/privacidad).
-   * 5. Si es exitoso, muestra una alerta y redirige al Login.
+   * 5. Si es exitoso, muestra un mensaje de éxito en pantalla y redirige al Login.
    */
   async register() {
     this.errores = [];
+    this.successMessage = null;
 
     // Validaciones iniciales
     if (!this.email || !this.password) {
@@ -70,8 +72,7 @@ export class Register {
 
     try {
       this.loading = true;
-      // Forzamos actualización para que salga "REGISTRANDO..."
-      this.cd.detectChanges(); 
+      this.cd.detectChanges(); // 5. Forzamos actualización para que salga "REGISTRANDO..."
 
       const { data, error } = await supabase.auth.signUp({
         email: this.email,
@@ -86,35 +87,34 @@ export class Register {
       if (error) {
         console.error('Error registro:', error.message);
         this.errores.push(error.message);
-        
-        // Paramos la carga y forzamos actualización
         this.loading = false;
-        this.cd.detectChanges();
+        this.cd.detectChanges(); // 6. Paramos la carga y actualizamos
         return;
       } 
       
-      // Comprobación de usuario duplicado (Para evitar que siempre salga usuario registrado aunque ya exista )
+      // Comprobación de usuario duplicado
       if (data.user && data.user.identities && data.user.identities.length === 0) {
         this.errores.push('Este correo electrónico ya está registrado.');
-        
-
-        // Paramos la carga y avisamos a Angular
         this.loading = false;
         this.cd.detectChanges(); 
         return;
       }
 
-      // Si todo va bien
-      alert('¡Registro exitoso! Por favor, revisa tu bandeja de entrada para confirmar tu correo antes de iniciar sesión.');
-      this.router.navigate(['/login']);
+      // Si todo va bien, mostramos mensaje en pantalla
+      this.successMessage = '¡Registro exitoso! Revisa tu bandeja de entrada para confirmar tu correo antes de iniciar sesión.';
+      this.cd.detectChanges();
+
+      // Redirigir al login tras 6 segundos
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 6000);
 
     } catch (err) {
       this.errores.push('Ocurrió un error inesperado.');
       console.error(err);
     } finally {
       this.loading = false;
-      // 3. Otro aviso a Angular, aseguramos que el botón se desbloquea siempre
-      this.cd.detectChanges();
+      this.cd.detectChanges(); // 7. Aseguramos que el botón se desbloquea siempre
     }
   }
 }
