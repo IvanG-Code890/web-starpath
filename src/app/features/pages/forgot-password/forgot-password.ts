@@ -27,12 +27,12 @@ import { supabase } from '../../../core/services/supabase.config';
   styleUrls: ['./forgot-password.css']
 })
 export class ForgotPassword {
-  // 📌 Estado del formulario
+  // Estado del formulario
   email = '';                        // Correo introducido por el usuario
   errores: string[] = [];            // Lista de errores a mostrar
   successMessage: string | null = null; // Mensaje de éxito
 
-  // 📌 Estado del botón
+  // Estado del botón
   loading = false;                   // Indica si se está procesando
   buttonText = 'Enviar enlace';      // Texto dinámico del botón
 
